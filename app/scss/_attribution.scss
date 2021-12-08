@@ -1,0 +1,12 @@
+.attribution {
+	background-color: $limeGreen;
+	color: $veryLightGray;
+	font-size: 0.9rem;
+	text-align: center;
+	line-height: 2.5;
+
+	& a {
+		text-decoration: none;
+		color: $darkBlue;
+	}
+}

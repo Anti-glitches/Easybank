@@ -1,0 +1,125 @@
+.footer {
+	background-color: $darkBlue;
+	color: $white;
+	padding: 2.5rem;
+	text-align: center;
+
+	.container {
+		@include breakpoint-up(large) {
+			display: grid;
+			grid-template-columns: 1.3fr repeat(2, 1fr) 2fr;
+			grid-template-rows: 1fr auto;
+			grid-template-areas:
+				"logo links1 links2 cta"
+				"social links1 links2 copyright";
+			justify-items: start;
+		}
+	}
+
+	a {
+		color: $white;
+	}
+
+	&__logo {
+		display: inline-block;
+
+		@include breakpoint-down(medium) {
+			margin-bottom: 1.875rem;
+		}
+
+		@include breakpoint-up(large) {
+			grid-area: logo;
+		}
+	}
+
+	&__social {
+		@include breakpoint-down(medium) {
+			margin-bottom: 1.875rem;
+		}
+
+		@include breakpoint-up(large) {
+			grid-area: social;
+			align-self: end;
+		}
+
+		a {
+			display: inline-block;
+
+			&:not(:last-child) {
+				margin-right: 0.8rem;
+			}
+
+			@include breakpoint-up(large) {
+				&:not(:last-child) {
+					margin-right: 0.5rem;
+				}
+			}
+			& img {
+				transition: all ease-in-out 200ms;
+
+				&:hover {
+					filter: brightness(0) saturate(100%) invert(63%) sepia(66%)
+						saturate(485%) hue-rotate(83deg) brightness(92%) contrast(96%);
+				}
+			}
+		}
+	}
+
+	&__links {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 2;
+		font-size: $font-sm;
+
+		a {
+			transition: all ease-in-out 300ms;
+
+			&:hover {
+				color: $limeGreen;
+			}
+		}
+
+		@include breakpoint-up(large) {
+			align-items: start;
+		}
+
+		&.col1 {
+			@include breakpoint-up(large) {
+				grid-area: links1;
+			}
+		}
+
+		&.col2 {
+			@include breakpoint-down(medium) {
+				margin-bottom: 1.875rem;
+			}
+			@include breakpoint-up(large) {
+				grid-area: links2;
+			}
+		}
+	}
+
+	&__cta {
+		@include breakpoint-up(large) {
+			grid-area: cta;
+			text-align: right;
+			justify-self: end;
+		}
+		a.button {
+			@include breakpoint-down(medium) {
+				margin-bottom: 1.875rem;
+			}
+		}
+	}
+	&__copyright {
+		font-size: $font-sm;
+		@include breakpoint-up(large) {
+			grid-area: copyright;
+			text-align: right;
+			align-self: end;
+			justify-self: end;
+			white-space: nowrap;
+		}
+	}
+}
